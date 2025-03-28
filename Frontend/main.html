@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaTrade - Main Page</title>
+    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <!-- Left side: Logo and Links -->
+        <div class="navbar-left">
+            <img src="./assets/logo-png.png" alt="NexaTrade Logo"> <!-- Replace with your logo path -->
+            <a href="#">Explore</a>
+            <a href="#">Dashboard</a>
+        </div>
+
+        <!-- Middle: Search Bar -->
+        <div class="navbar-middle">
+            <input type="text" placeholder="Search NexaTrade...">
+        </div>
+
+        <!-- Right side: Icons and Profile -->
+        <div class="navbar-right">
+            <i class="fas fa-bell nav-icon"></i> <!-- Notification icon -->
+            <i class="fas fa-wallet nav-icon"></i> <!-- Wallet icon -->
+            <i class="fas fa-shopping-cart nav-icon"></i> <!-- Cart icon -->
+            <div class="user-avatar"></div> <!-- User Profile avatar -->
+            <i class="fas fa-chevron-down dropdown-icon"></i> <!-- Dropdown icon -->
+        </div>
+    </nav>
+
+    <script>
+        window.onload = async function() {
+            const token = localStorage.getItem('token');
+            
+            if (!token) {
+              alert('You are not logged in. Redirecting to login page...');
+              window.location.href = 'login.html';
+              return;
+            }
+          
+            const response = await fetch('http://localhost:3000/main', {
+              method: 'GET',
+              headers: { 'Authorization': `Bearer ${token}` }
+            });
+          
+            const data = await response.json();
+          
+            if (response.status === 200) {
+              // Display welcome message or content
+              document.getElementById('welcomeMessage').innerText = data.message;
+            } else {
+              alert(data.message);
+              window.location.href = 'login.html';
+            }
+          };
+          
+    </script>
+
+</body>
+</html>

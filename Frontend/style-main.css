@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 70px;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    height: 50px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.navbar-left a {
+    text-decoration: none;
+    color: #333;
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.navbar-left a:nth-child(2) {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.navbar-middle {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-middle input[type="text"] {
+    padding: 8px 12px;
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.navbar-middle input[type="text"]::placeholder {
+    color: #999;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right .nav-icon {
+    font-size: 22px;
+    color: #333;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.navbar-right .user-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 20px;
+    background-color: #f0e68c;
+}
+
+.navbar-right .dropdown-icon {
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+/* Optional: Hover effects */
+.navbar-left a:hover {
+    color: #007bff;
+}
+
+.navbar-right .nav-icon:hover {
+    color: #007bff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .navbar-middle input[type="text"] {
+        width: 100%;
+    }
+
+    .navbar-left, .navbar-right {
+        margin-top: 10px;
+    }
+}
